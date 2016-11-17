@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
+<html lang="en-us" ng-app='colorApp'>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Menu generator</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<link rel="stylesheet" href="./css/main.css" type="text/css" />
+<link rel="stylesheet" href="./css/box.css" type="text/css" />
+<link rel="stylesheet" href="https://rawgit.com/buberdds/angular-bootstrap-colorpicker/master/css/colorpicker.css" type="text/css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script type="text/javascript" src="https://rawgit.com/buberdds/angular-bootstrap-colorpicker/master/js/bootstrap-colorpicker-module.js"></script>
+
+</head>
+
+
+<body>
+<script>
+'use strict';
+
+angular.module('colorApp', ['colorpicker.module'])
+
+  .controller('MainCtrl', ['$scope', function($scope) {
+
+    $scope.hexPicker = {
+      color: ''
+    };
+
+    $scope.rgbPicker = {
+      color: ''
+    };
+
+    $scope.rgbaPicker = {
+      color: ''
+    };
+
+    $scope.nonInput = {
+      color: ''
+    };
+
+    $scope.resetColor = function() {
+      $scope.hexPicker = {
+        color: '#ff0000'
+      };
+    };
+
+    $scope.resetRBGColor = function() {
+      $scope.rgbPicker = {
+        color: 'rgb(255,255,255)'
+      };
+    };
+
+    $scope.resetRBGAColor = function() {
+      $scope.rgbaPicker = {
+        color: 'rgb(255,255,255, 0.25)'
+      };
+    };
+
+    $scope.resetNonInputColor = function() {
+      $scope.nonInput = {
+        color: '#ffffff'
+      };
+    };
+
+  }]);
+</script>
+<!--xs (for phones)-->
+<!--sm (for tablets)-->
+<!--md (for desktops)-->
+<!--lg (for larger desktops)-->
+<nav style="background-image:none" ng-style="{'background-color': hexPicker.colorBack, 'border-color': hexPicker.colorBack}"  id="mainNav"  class="navbar navbar-default navbar-fixed-top navbar-custom affix-top"  >
+        <div class="container"  ng-style="{'background-color': hexPicker.colorBack}">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a ng-style="{'color': hexPicker.colorLinks}"  class="navbar-brand" href="#page-top">{{ title || "Start Bootstrap"  }}</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden active">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a ng-style="{'color': hexPicker.colorLinks}" href="#portfolio">{{ link1 || "Portfolio"  }}</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a ng-style="{'color': hexPicker.colorLinks}" href="#about">{{ link2 || "About"  }}</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a ng-style="{'color': hexPicker.colorLinks}" href="#contact">{{ link3 || "Contact"  }}</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+<header class="full-height">
+	<div class="container-fluid">
+		<!--<div class="row box">-->
+		<!--	<nav class="col-md-12">nav</nav>-->
+		<!--</div>-->
+		<div class="row box">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8 boxContent tab-content">
+		
+      <ul class="nav nav-pills">
+        <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+        <li><a data-toggle="pill" href="#menu1">Code</a></li>
+      </ul>
+      <div id="home" class="tab-pane fade in active">
+			<h3><span class="label label-default">Tiltle</span></h3>
+			    <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Title text</span>
+                    <input ng-model="title" type="text" class="form-control" placeholder="Title" aria-describedby="basic-addon1">
+          </div>
+			<h3><span class="label label-default">Links</span></h3>
+			    <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Link1</span>
+                    <input ng-model="link1" type="text" class="form-control" placeholder="link1" aria-describedby="basic-addon1">
+                    <span class="input-group-addon" id="basic-addon1">Link2</span>
+                    <input ng-model="link2" type="text" class="form-control" placeholder="link2" aria-describedby="basic-addon1">
+                    <span class="input-group-addon" id="basic-addon1">Link3</span>
+                    <input ng-model="link3" type="text" class="form-control" placeholder="link3" aria-describedby="basic-addon1">
+          </div>
+			    <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Links Color</span>
+                    <input colorpicker aria-describedby="basic-addon1" ng-style="{'color': hexPicker.colorLinks}" class="form-control" ng-model="hexPicker.colorLinks" type="text" />
+          </div>
+			    <h3><span class="label label-default">Background</span></h3>
+			    <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Background Color</span>
+                    <input colorpicker aria-describedby="basic-addon1" ng-style="{'color': hexPicker.colorBack}" class="form-control" ng-model="hexPicker.colorBack" type="text" />
+          </div>
+        </div> 
+        <div id="menu1" class="tab-pane fade">
+            <p>
+            <div class="alert alert-danger" role="alert">
+              <strong>REMEMBER!</strong>Add the <a target="self_" href="http://v4-alpha.getbootstrap.com/getting-started/introduction/#starter-template">bootstrap library</a> and its dependencies.
+            </div>
+            </p>
+            <div class="form-group">
+              <label for="comment">HTML:</label>
+              <textarea class="form-control" rows="5" id="comment">
+                  <nav style="background-image:none" id="mainNav"  class="navbar navbar-default navbar-fixed-top navbar-custom affix-top"  >
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header page-scroll">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                            </button>
+                            <a class="link-personalized"  class="navbar-brand" href="#page-top">{{ title || "Start Bootstrap"  }}</a>
+                        </div>
+            
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="hidden active">
+                                    <a href="#page-top"></a>
+                                </li>
+                                <li class="page-scroll">
+                                    <a class="link-personalized" href="#portfolio">{{ link1 || "Portfolio"  }}</a>
+                                </li>
+                                <li class="page-scroll">
+                                    <a class="link-personalized" href="#about">{{ link2 || "About"  }}</a>
+                                </li>
+                                <li class="page-scroll">
+                                    <a class="link-personalized" href="#contact">{{ link3 || "Contact"  }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+              </textarea>
+              
+            <div class="form-group">
+              <label for="comment">CSS:</label>
+              <textarea class="form-control" rows="5" id="comment">
+                #mainNav {
+                  background-color:{{hexPicker.colorBack}} !important;
+                  border-color: {{hexPicker.colorBack}} !important;
+                }
+                
+                .link-personalized {
+                  color:{{hexPicker.colorLinks}} !important;
+                }
+              </textarea>
+            </div>
+        </div>
+        </div>
+    	<div class="col-sm-2"></div>
+    </div>
+    </div>
+</header>
+<footer>
+</footer>
+
+</body>
+</html>
